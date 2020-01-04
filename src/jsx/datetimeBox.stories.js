@@ -6,15 +6,18 @@ import DatetimeBox from "./datetimeBox";
 
 storiesOf("DatetimeBox", module)
   .add("Initial", () => <DatetimeBox />)
-  .add("With Hello label", () => <DatetimeBox label="Hello" />)
-  .add("With 1/1/2020", () => <DatetimeBox value={new Date("1/1/2020")} />)
-  .add("With Tooltip", () => <DatetimeBox tooltip="I am a tooltip" />)
-  .add("With Age Tooltip", () => (
-    <DatetimeBox
-      tooltip="Born {{formatRelative value units='year'}}"
-      value={new Date("1/1/1980")}
-    />
+  .add("With props label Hello", () => <DatetimeBox label="Hello" />)
+  .add("With props value Date 1/1/2020", () => (
+    <DatetimeBox value={new Date("1/1/2020")} />
   ))
-  .add("With On Select Date Event", () => (
+  .add("With props tooltip Hello", () => <DatetimeBox tooltip="Hello" />)
+  .add("With props onSelectDate", () => (
     <DatetimeBox onSelectDate={action("onSelectDate")} />
+  ))
+  .add("Birthdate Example", () => (
+    <DatetimeBox
+      label="Birth Date"
+      value={new Date("1/1/1975")}
+      tooltip="Born {{formatRelative value units='year'}}"
+    />
   ));

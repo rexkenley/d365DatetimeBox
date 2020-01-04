@@ -22,7 +22,7 @@ const datetimeBoxId = getId("datetimeBox"),
 
     return (
       <Fabric style={{ display: "flex" }}>
-        <Label htmlFor={datetimeBoxId}>{label}</Label>
+        {label && <Label htmlFor={datetimeBoxId}>{label}&nbsp;</Label>}
         <TooltipHost id={tooltipId} content={content}>
           <DatePicker
             id={datetimeBoxId}
