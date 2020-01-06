@@ -79,7 +79,7 @@ export class DatetimeBox
    */
   public getOutputs(): IOutputs {
     //@ts-ignore
-    return { value: this.currentValue };
+    return { value: this.currentValue && this.currentValue.toString() };
   }
 
   /**
