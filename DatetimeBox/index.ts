@@ -29,7 +29,7 @@ export class DatetimeBox
     state: ComponentFramework.Dictionary,
     container: HTMLDivElement
   ) {
-    const { value, label, tooltip, is24 } = context.parameters,
+    const { value, tooltip, is24 } = context.parameters,
       initialValue = (value && value.raw) || null;
 
     this.container = container;
@@ -43,7 +43,6 @@ export class DatetimeBox
       React.createElement(DtB, {
         // @ts-ignore
         value: initialValue,
-        label: (label && label.raw) || "",
         tooltip: (tooltip && tooltip.raw) || "",
         is24,
         isDateOnly: value.type === "DateAndTime.DateOnly",

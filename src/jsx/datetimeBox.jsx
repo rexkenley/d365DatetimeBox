@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Fabric } from "office-ui-fabric-react/lib/Fabric";
 import { Stack } from "office-ui-fabric-react";
-import { Label } from "office-ui-fabric-react/lib/Label";
 import { TooltipHost } from "office-ui-fabric-react/lib/Tooltip";
 import { DatePicker } from "office-ui-fabric-react";
 import { ComboBox } from "office-ui-fabric-react/lib/ComboBox";
@@ -21,7 +20,7 @@ const datetimeBoxId = getId("datetimeBox"),
     return (template && template({ value })) || "";
   },
   DatetimeBox = props => {
-    const { label, value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
+    const { value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
       options = is24 ? get24Hours() : get12Hours(),
       template = tooltip && Handlebars.compile(tooltip),
       [date, setDate] = useState(value),
@@ -44,7 +43,6 @@ const datetimeBoxId = getId("datetimeBox"),
     return (
       <Fabric>
         <Stack tokens={{ childrenGap: 8 }} horizontal>
-          {label && <Label htmlFor={datetimeBoxId}>{label}</Label>}
           <TooltipHost id={tooltipId} content={setTooltip(template, value)}>
             <DatePicker
               id={datetimeBoxId}

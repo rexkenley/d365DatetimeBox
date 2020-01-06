@@ -7,9 +7,8 @@
       <type>DateAndTime.DateOnly</type>
     </type-group>
     <property name="value" display-name-key="value" description-key="DateTime or Date value" of-type-group="datetime" usage="bound" required="true" />
-    <property name="label" display-name-key="label" description-key="Label" of-type="SingleLine.Text" usage="input" required="true" />
     <property name="tooltip" display-name-key="tooltip" description-key="Tooltip Template" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="is24" display-name-key="is24" description-key="Use 24 Hours" of-type="TwoOptions" usage="input" required="false" />
+    <property name="is24" display-name-key="is24" description-key="Use 24 Hours" of-type="SingleLine.Text" usage="input" required="false" />
     <resources>
       <code path="index.ts" order="1"/>
       <!-- UNCOMMENT TO ADD MORE RESOURCES
