@@ -6,6 +6,7 @@
     "storybook": "start-storybook",
     "lint": "eslint --ext .jsx,.js src/",
     "test": "npx jest --verbose ./test",
+    "test-storybook": "storyshots",
     "//PCF": "*****************************************************************",
     "build": "pcf-scripts build",
     "clean": "pcf-scripts clean",
@@ -19,6 +20,15 @@
   ],
   "author": "Rex Kenley Tan",
   "license": "MIT",
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "require-context-hook"
+        ]
+      }
+    }
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.2.1",
     "@types/jest": "^24.0.25",
@@ -37,12 +47,14 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-storyshots": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-require-context-hook": "^1.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.9.0",
@@ -55,6 +67,7 @@
     "jsdoc": "^3.6.3",
     "pcf-scripts": "^1",
     "pcf-start": "^1",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "react-test-renderer": "^16.12.0"
   }
 }

@@ -70,7 +70,6 @@ export class DatetimeBox
     }
 
     this.currentValue = value.raw || null;
-    //setHTML(value.raw);
   }
 
   /**
