@@ -1,3 +1,17 @@
+export function setDatetime(date, time) {
+  return (
+    date &&
+    new Date(
+      `${date.getFullYear()}-${(date.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}-${date
+        .getDate()
+        .toString()
+        .padStart(2, "0")} ${(time && time.key) || "00:00"}`
+    )
+  );
+}
+
 export function get12Hours() {
   const hours = [];
 

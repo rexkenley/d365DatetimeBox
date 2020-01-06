@@ -10,7 +10,7 @@ import { initializeIcons } from "@uifabric/icons";
 import Handlebars from "handlebars";
 import HandlebarsIntl from "handlebars-intl";
 
-import { get12Hours, get24Hours } from "../js/datetime";
+import { setDatetime, get12Hours, get24Hours } from "../js/datetime";
 
 initializeIcons();
 HandlebarsIntl.registerWith(Handlebars);
@@ -20,25 +20,26 @@ const datetimeBoxId = getId("datetimeBox"),
   setTooltip = (template, value) => {
     return (template && template({ value })) || "";
   },
-  setDatetime = (date, time) => {
-    return (
-      date &&
-      new Date(
-        `${date.getFullYear()}-${(date.getMonth() + 1)
-          .toString()
-          .padStart(2, "0")}-${date
-          .getDate()
-          .toString()
-          .padStart(2, "0")} ${(time && time.key) || "00:00"}`
-      )
-    );
-  },
   DatetimeBox = props => {
     const { label, value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
       options = is24 ? get24Hours() : get12Hours(),
       template = tooltip && Handlebars.compile(tooltip),
-      [date, setDate] = useState(setDatetime(value)),
-      [time, setTime] = useState();
+      [date, setDate] = useState(value),
+      [time, setTime] = useState(
+        value &&
+          options.find(o => {
+            return (
+              o.key ===
+              `${value
+                .getHours()
+                .toString()
+                .padStart(2, "0")}:${value
+                .getMinutes()
+                .toString()
+                .padStart(2, "0")}`
+            );
+          })
+      );
 
     return (
       <Fabric>
@@ -47,12 +48,12 @@ const datetimeBoxId = getId("datetimeBox"),
           <TooltipHost id={tooltipId} content={setTooltip(template, value)}>
             <DatePicker
               id={datetimeBoxId}
-              value={value}
+              value={date}
               onSelectDate={value => {
                 setDate(value);
+                if (!value) setTime(null);
 
-                let datetime = setDatetime(value, time);
-                onSelectDatetime && onSelectDatetime(datetime);
+                onSelectDatetime && onSelectDatetime(setDatetime(value, time));
               }}
               placeholder="---"
               allowTextInput={true}
@@ -63,12 +64,13 @@ const datetimeBoxId = getId("datetimeBox"),
               autoComplete="on"
               useComboBoxAsMenuWidth={true}
               buttonIconProps={{ iconName: "Clock" }}
+              multiSelect={false}
               options={options}
+              selectedKey={time && time.key}
               onChange={(event, option) => {
                 setTime(option);
 
-                let datetime = setDatetime(date, option);
-                onSelectDatetime && onSelectDatetime(datetime);
+                onSelectDatetime && onSelectDatetime(setDatetime(date, option));
               }}
             />
           )}
