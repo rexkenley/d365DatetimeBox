@@ -69,7 +69,7 @@ const datetimeBoxId = getId("datetimeBox"),
         <Stack tokens={{ childrenGap: 8 }} horizontal>
           <TooltipHost
             id={tooltipId}
-            content={setTooltip(tooltip, setDatetime(value, time))}
+            content={setTooltip(tooltip, setDatetime(date, time))}
           >
             <DatePicker
               id={datetimeBoxId}
