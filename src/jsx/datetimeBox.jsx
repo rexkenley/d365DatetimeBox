@@ -11,11 +11,28 @@ import HandlebarsIntl from "handlebars-intl";
 
 import { setDatetime, get12Hours, get24Hours } from "../js/datetime";
 
+/** @module datetimeBox */
+
 initializeIcons();
 HandlebarsIntl.registerWith(Handlebars);
 
+/**
+ * @typedef {{}} DatetimeBoxProps
+ * @property {{}} value - Date value
+ * @property {string} tooltip - a Handlebar enable string
+ * @property {function} onSelectDatetime - a callback fired when date or time values changed
+ * @property {boolean} is24 - 24 hours if true, otherwise 12 hours
+ * @property {boolean} isDateOnly - will display time dropdown if true
+ */
+
 const datetimeBoxId = getId("datetimeBox"),
   tooltipId = getId("tooltip"),
+  /**
+   * Sets the tooltip content by merging the tooltip and value
+   * @param {string} tooltip
+   * @param {{}} value - Date
+   * @returns {string}
+   */
   setTooltip = (tooltip, value) => {
     if (!tooltip || (tooltip.indexOf("{{") > -1 && !value)) return "";
 
@@ -25,6 +42,10 @@ const datetimeBoxId = getId("datetimeBox"),
 
     return (template && template({ value })) || "";
   },
+  /** Datetimebox
+   * @param {DatetimeBoxProps} props
+   * @returns {{}}
+   */
   DatetimeBox = props => {
     const { value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
       options = is24 ? get24Hours() : get12Hours(),

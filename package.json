@@ -6,6 +6,7 @@
     "storybook": "start-storybook",
     "lint": "eslint --ext .jsx,.js src/",
     "test": "npx jest --verbose ./test",
+    "doc": "jsdoc -c jsdoc.json",
     "//PCF": "*****************************************************************",
     "build": "pcf-scripts build",
     "clean": "pcf-scripts clean",

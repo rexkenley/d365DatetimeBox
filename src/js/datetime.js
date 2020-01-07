@@ -1,3 +1,19 @@
+/** @module datetime */
+
+/**
+ * An options object
+ * @typedef {{}} OptionsTime
+ * @property {string} key - a 24 hour time value
+ * @property {string} text - a 24 hour time or 12 hour time value
+ */
+
+/**
+ * Returns a datetime value based on date and time parameters
+ * @function
+ * @param {{}} date
+ * @param {OptionsTime} time
+ * @returns {{}} Date value
+ */
 export function setDatetime(date, time) {
   return (
     date &&
@@ -12,6 +28,10 @@ export function setDatetime(date, time) {
   );
 }
 
+/**
+ * Returns an array of 12 hour 15 minute interval values
+ * @returns {Array.<OptionsTime>}
+ */
 export function get12Hours() {
   const hours = [];
 
@@ -30,6 +50,10 @@ export function get12Hours() {
   return hours;
 }
 
+/**
+ * Returns an array of 24 hour 15 minute interval values
+ * @returns {Array.<OptionsTime>}
+ */
 export function get24Hours() {
   const hours = [];
 
