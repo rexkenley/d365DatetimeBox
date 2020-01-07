@@ -22,12 +22,11 @@ storiesOf("DatetimeBox", module)
   .add("With props isDateOnly true", () => <DatetimeBox isDateOnly={true} />)
   .add("Birthdate Example", () => (
     <DatetimeBox
-      label="Birth Date"
       isDateOnly={true}
       value={new Date("1/1/1975")}
       tooltip="Born {{formatRelative value units='year'}}"
     />
   ))
   .add("Appointment Example", () => (
-    <DatetimeBox label="Appointment" value={new Date("1/1/2020 13:00")} />
+    <DatetimeBox value={new Date("1/1/2020 13:00")} />
   ));
