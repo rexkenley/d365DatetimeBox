@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Fabric } from "office-ui-fabric-react/lib/Fabric";
 import { Stack } from "office-ui-fabric-react";
 import { TooltipHost } from "office-ui-fabric-react/lib/Tooltip";
@@ -16,13 +16,18 @@ HandlebarsIntl.registerWith(Handlebars);
 
 const datetimeBoxId = getId("datetimeBox"),
   tooltipId = getId("tooltip"),
-  setTooltip = (template, value) => {
+  setTooltip = (tooltip, value) => {
+    if (!tooltip || (tooltip.indexOf("{{") > -1 && !value)) return "";
+
+    const template = tooltip && Handlebars.compile(tooltip);
+
+    if (!template) return "";
+
     return (template && template({ value })) || "";
   },
   DatetimeBox = props => {
     const { value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
       options = is24 ? get24Hours() : get12Hours(),
-      template = tooltip && Handlebars.compile(tooltip),
       [date, setDate] = useState(value),
       [time, setTime] = useState(
         value &&
@@ -40,10 +45,32 @@ const datetimeBoxId = getId("datetimeBox"),
           })
       );
 
+    useEffect(() => {
+      setDate(value);
+      setTime(
+        value &&
+          options.find(o => {
+            return (
+              o.key ===
+              `${value
+                .getHours()
+                .toString()
+                .padStart(2, "0")}:${value
+                .getMinutes()
+                .toString()
+                .padStart(2, "0")}`
+            );
+          })
+      );
+    }, [props.value]);
+
     return (
       <Fabric>
         <Stack tokens={{ childrenGap: 8 }} horizontal>
-          <TooltipHost id={tooltipId} content={setTooltip(template, value)}>
+          <TooltipHost
+            id={tooltipId}
+            content={setTooltip(tooltip, setDatetime(value, time))}
+          >
             <DatePicker
               id={datetimeBoxId}
               value={date}

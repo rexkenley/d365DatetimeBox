@@ -10,6 +10,8 @@ export class DatetimeBox
   private notifyOutputChanged: () => void;
   private currentValue: object | null;
   private updatedByReact: boolean;
+  private tooltip: string;
+  private is24: boolean;
   /**
    * Empty constructor.
    */
@@ -29,22 +31,23 @@ export class DatetimeBox
     state: ComponentFramework.Dictionary,
     container: HTMLDivElement
   ) {
-    const { value, tooltip, is24 } = context.parameters,
-      initialValue = (value && value.raw) || null;
+    const { value, tooltip, is24 } = context.parameters;
 
     this.container = container;
     this.notifyOutputChanged = notifyOutputChanged;
-    this.currentValue = initialValue;
+    this.currentValue = (value && value.raw) || null;
     this.updatedByReact = false;
+    this.tooltip = (tooltip && tooltip.raw) || "";
+    this.is24 = (is24 && is24.raw === "true") || false;
 
     // Add control initialization code
     ReactDOM.render(
       // @ts-ignore
       React.createElement(DtB, {
         // @ts-ignore
-        value: initialValue,
-        tooltip: (tooltip && tooltip.raw) || "",
-        is24,
+        value: this.currentValue,
+        tooltip: this.tooltip,
+        is24: this.is24,
         isDateOnly: value.type === "DateAndTime.DateOnly",
         onSelectDatetime: value => {
           this.currentValue = value;
@@ -71,6 +74,23 @@ export class DatetimeBox
     }
 
     this.currentValue = value.raw || null;
+
+    ReactDOM.render(
+      // @ts-ignore
+      React.createElement(DtB, {
+        // @ts-ignore
+        value: this.currentValue,
+        tooltip: this.tooltip,
+        is24: this.is24,
+        isDateOnly: value.type === "DateAndTime.DateOnly",
+        onSelectDatetime: value => {
+          this.currentValue = value;
+          this.updatedByReact = true;
+          this.notifyOutputChanged();
+        }
+      }),
+      this.container
+    );
   }
 
   /**

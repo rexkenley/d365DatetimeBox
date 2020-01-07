@@ -7,7 +7,6 @@ import DatetimeBox from "../src/jsx/datetimeBox";
 storiesOf("DatetimeBox", module)
   .add("Initial", () => <DatetimeBox />)
   .add("With props is24 true", () => <DatetimeBox is24={true} />)
-  .add("With props label Label", () => <DatetimeBox label="Label" />)
   .add("With props value Date 1/1/2020 13:00 Standard", () => {
     return <DatetimeBox value={new Date("1/1/2020 13:00")} />;
   })
