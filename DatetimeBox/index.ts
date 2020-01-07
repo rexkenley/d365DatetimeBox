@@ -46,7 +46,7 @@ export class DatetimeBox
         tooltip: (tooltip && tooltip.raw) || "",
         is24,
         isDateOnly: value.type === "DateAndTime.DateOnly",
-        onSelectDate: value => {
+        onSelectDatetime: value => {
           this.currentValue = value;
           this.updatedByReact = true;
           this.notifyOutputChanged();
