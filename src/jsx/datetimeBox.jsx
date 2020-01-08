@@ -47,7 +47,7 @@ const datetimeBoxId = getId("datetimeBox"),
    * @returns {{}}
    */
   DatetimeBox = props => {
-    const { value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
+    const { label, value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
       options = is24 ? get24Hours() : get12Hours(),
       [date, setDate] = useState(value),
       [time, setTime] = useState(
@@ -94,6 +94,7 @@ const datetimeBoxId = getId("datetimeBox"),
           >
             <DatePicker
               id={datetimeBoxId}
+              label={label}
               value={date}
               onSelectDate={value => {
                 setDate(value);
@@ -111,6 +112,7 @@ const datetimeBoxId = getId("datetimeBox"),
               useComboBoxAsMenuWidth={true}
               buttonIconProps={{ iconName: "Clock" }}
               multiSelect={false}
+              label={label && "_"}
               options={options}
               selectedKey={time && time.key}
               onChange={(event, option) => {
