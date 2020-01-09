@@ -9,6 +9,7 @@ An enhanced datetime box
   
 **Testing and Review**
   - npm run storybook
+    - _Note: If you get an error, run **npm run test:output**_
   - npm run test
 
 **Create deployment file**
