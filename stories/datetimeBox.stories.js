@@ -4,7 +4,6 @@ import { action } from "@storybook/addon-actions";
 import { withTests } from "@storybook/addon-jest";
 
 import DatetimeBox from "../src/jsx/datetimeBox";
-import results from "../test/.jest-test-results.json";
 
 storiesOf("DatetimeBox", module)
   .add("Initial", () => <DatetimeBox />)
@@ -32,8 +31,4 @@ storiesOf("DatetimeBox", module)
   ))
   .add("Appointment Example", () => (
     <DatetimeBox value={new Date("1/1/2020 13:00")} />
-  ))
-  .addDecorator(withTests({ results }))
-  .add("Test Results", () => <div>Jest results in storybook</div>, {
-    jest: ["datetime.test.js", "storyShots.test.js"]
-  });
+  ));
