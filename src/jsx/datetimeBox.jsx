@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Fabric } from "office-ui-fabric-react/lib/Fabric";
-import { Stack } from "office-ui-fabric-react";
+import { Stack, DatePicker } from "office-ui-fabric-react";
 import { TooltipHost } from "office-ui-fabric-react/lib/Tooltip";
-import { DatePicker } from "office-ui-fabric-react";
 import { ComboBox } from "office-ui-fabric-react/lib/ComboBox";
 import { getId } from "office-ui-fabric-react/lib/Utilities";
 import { initializeIcons } from "@uifabric/icons";
@@ -18,8 +17,9 @@ HandlebarsIntl.registerWith(Handlebars);
 
 /**
  * @typedef {{}} DatetimeBoxProps
+ * @property {string} label
  * @property {{}} value - Date value
- * @property {string} tooltip - a Handlebar enable string
+ * @property {string} tooltip - a Handlebar enabled string
  * @property {function} onSelectDatetime - a callback fired when date or time values changed
  * @property {boolean} is24 - 24 hours if true, otherwise 12 hours
  * @property {boolean} isDateOnly - will display time dropdown if true
@@ -47,6 +47,7 @@ const datetimeBoxId = getId("datetimeBox"),
    * @returns {{}}
    */
   DatetimeBox = props => {
+    // eslint-disable-next-line
     const { label, value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
       options = is24 ? get24Hours() : get12Hours(),
       [date, setDate] = useState(value),
@@ -56,10 +57,10 @@ const datetimeBoxId = getId("datetimeBox"),
             return (
               o.key ===
               `${value
-                .getHours()
+                .getHours() // eslint-disable-line
                 .toString()
                 .padStart(2, "0")}:${value
-                .getMinutes()
+                .getMinutes() // eslint-disable-line
                 .toString()
                 .padStart(2, "0")}`
             );
@@ -83,7 +84,7 @@ const datetimeBoxId = getId("datetimeBox"),
             );
           })
       );
-    }, [props.value]);
+    }, [value]);
 
     return (
       <Fabric>
@@ -96,20 +97,21 @@ const datetimeBoxId = getId("datetimeBox"),
               id={datetimeBoxId}
               label={label}
               value={date}
-              onSelectDate={value => {
-                setDate(value);
-                if (!value) setTime(null);
+              onSelectDate={selected => {
+                setDate(selected);
+                if (!selected) setTime(null);
 
-                onSelectDatetime && onSelectDatetime(setDatetime(value, time));
+                onSelectDatetime &&
+                  onSelectDatetime(setDatetime(selected, time));
               }}
               placeholder="---"
-              allowTextInput={true}
+              allowTextInput
             />
           </TooltipHost>
           {!isDateOnly && (
             <ComboBox
               autoComplete="on"
-              useComboBoxAsMenuWidth={true}
+              useComboBoxAsMenuWidth
               buttonIconProps={{ iconName: "Clock" }}
               multiSelect={false}
               label={label && "_"}

@@ -40,6 +40,7 @@ export function get12Hours() {
       const time = `${hour.toString().padStart(2, "0")}:${min}`;
       hours.push({
         key: time,
+        // eslint-disable-next-line
         text: `${hour === 0 ? "12" : hour > 12 ? hour - 12 : hour}:${min} ${
           hour < 12 ? "AM" : "PM"
         }`
