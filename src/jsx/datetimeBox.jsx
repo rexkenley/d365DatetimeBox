@@ -48,7 +48,16 @@ const datetimeBoxId = getId("datetimeBox"),
    */
   DatetimeBox = props => {
     // eslint-disable-next-line
-    const { label, value, tooltip, onSelectDatetime, is24, isDateOnly } = props,
+    const {
+        label,
+        value,
+        isTimeRange,
+        endValue,
+        tooltip,
+        onSelectDatetime,
+        is24,
+        isDateOnly
+      } = props,
       options = is24 ? get24Hours() : get12Hours(),
       [date, setDate] = useState(value),
       [time, setTime] = useState(
@@ -60,6 +69,21 @@ const datetimeBoxId = getId("datetimeBox"),
                 .getHours() // eslint-disable-line
                 .toString()
                 .padStart(2, "0")}:${value
+                .getMinutes() // eslint-disable-line
+                .toString()
+                .padStart(2, "0")}`
+            );
+          })
+      ),
+      [endTime, setEndTime] = useState(
+        endValue &&
+          options.find(o => {
+            return (
+              o.key ===
+              `${endValue
+                .getHours() // eslint-disable-line
+                .toString()
+                .padStart(2, "0")}:${endValue
                 .getMinutes() // eslint-disable-line
                 .toString()
                 .padStart(2, "0")}`
@@ -101,8 +125,14 @@ const datetimeBoxId = getId("datetimeBox"),
                 setDate(selected);
                 if (!selected) setTime(null);
 
-                onSelectDatetime &&
-                  onSelectDatetime(setDatetime(selected, time));
+                const result = { value: setDatetime(selected, time) };
+
+                if (isTimeRange)
+                  Object.assign(result, {
+                    endValue: setDatetime(selected, endTime)
+                  });
+
+                onSelectDatetime && onSelectDatetime(result);
               }}
               placeholder="---"
               allowTextInput
@@ -120,7 +150,35 @@ const datetimeBoxId = getId("datetimeBox"),
               onChange={(event, option) => {
                 setTime(option);
 
-                onSelectDatetime && onSelectDatetime(setDatetime(date, option));
+                const result = { value: setDatetime(date, option) };
+
+                if (isTimeRange)
+                  Object.assign(result, {
+                    endValue: setDatetime(date, endTime)
+                  });
+
+                onSelectDatetime && onSelectDatetime(result);
+              }}
+            />
+          )}
+          {isTimeRange && (
+            <ComboBox
+              autoComplete="on"
+              useComboBoxAsMenuWidth
+              buttonIconProps={{ iconName: "Clock" }}
+              multiSelect={false}
+              label={label && "_"}
+              options={options}
+              selectedKey={endTime && endTime.key}
+              onChange={(event, option) => {
+                setEndTime(option);
+
+                const result = {
+                  value: setDatetime(date, time),
+                  endValue: setDatetime(date, option)
+                };
+
+                onSelectDatetime && onSelectDatetime(result);
               }}
             />
           )}

@@ -9,9 +9,11 @@ export class DatetimeBox
   private container: HTMLDivElement;
   private notifyOutputChanged: () => void;
   private currentValue: object | null;
+  private endValue: object | null;
   private updatedByReact: boolean;
   private tooltip: string;
   private is24: boolean;
+  private isTimeRange: boolean;
   /**
    * Empty constructor.
    */
@@ -31,14 +33,16 @@ export class DatetimeBox
     state: ComponentFramework.Dictionary,
     container: HTMLDivElement
   ) {
-    const { value, tooltip, is24 } = context.parameters;
+    const { value, endValue, tooltip, is24, isTimeRange } = context.parameters;
 
     this.container = container;
     this.notifyOutputChanged = notifyOutputChanged;
     this.currentValue = (value && value.raw) || null;
+    this.endValue = (endValue && endValue.raw) || null;
     this.updatedByReact = false;
     this.tooltip = (tooltip && tooltip.raw) || "";
     this.is24 = (is24 && is24.raw === "true") || false;
+    this.isTimeRange = (isTimeRange && isTimeRange.raw === "true") || false;
 
     // Add control initialization code
     ReactDOM.render(
@@ -46,11 +50,14 @@ export class DatetimeBox
       React.createElement(DtB, {
         // @ts-ignore
         value: this.currentValue,
+        endValue: this.endValue,
         tooltip: this.tooltip,
         is24: this.is24,
+        isTimeRange: this.isTimeRange,
         isDateOnly: value.type === "DateAndTime.DateOnly",
-        onSelectDatetime: value => {
-          this.currentValue = value;
+        onSelectDatetime: result => {
+          this.currentValue = result.value;
+          this.endValue = result.endValue;
           this.updatedByReact = true;
           this.notifyOutputChanged();
         }
@@ -80,11 +87,14 @@ export class DatetimeBox
       React.createElement(DtB, {
         // @ts-ignore
         value: this.currentValue,
+        endValue: this.endValue,
         tooltip: this.tooltip,
         is24: this.is24,
+        isTimeRange: this.isTimeRange,
         isDateOnly: value.type === "DateAndTime.DateOnly",
-        onSelectDatetime: value => {
-          this.currentValue = value;
+        onSelectDatetime: result => {
+          this.currentValue = result.value;
+          this.endValue = result.endValue;
           this.updatedByReact = true;
           this.notifyOutputChanged();
         }
@@ -99,7 +109,10 @@ export class DatetimeBox
    */
   public getOutputs(): IOutputs {
     //@ts-ignore
-    return { value: this.currentValue && this.currentValue.toString() };
+
+    if (this.isTimeRange)
+      return { value: this.currentValue, endValue: this.endValue };
+    else return { value: this.currentValue };
   }
 
   /**

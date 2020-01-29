@@ -1,0 +1,1320 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots DatetimeBox Appointment Example 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value="Wed Jan 01 2020"
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-ComboBox-container "
+    >
+      <div
+        className="ms-ComboBox css-69"
+        id="ComboBox81wrapper"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-ComboBox-Input css-70"
+          data-is-interactable={true}
+          data-lpignore={true}
+          id="ComboBox81-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onTouchStart={[Function]}
+          readOnly={true}
+          role="combobox"
+          spellCheck={false}
+          type="text"
+          value="1:00 PM"
+        />
+        <button
+          aria-hidden={true}
+          className="ms-Button ms-Button--icon ms-ComboBox-CaretDown-button root-77"
+          data-is-focusable={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          role="presentation"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="ms-Button-flexContainer flexContainer-78"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden={true}
+              className="ms-Icon root-37 css-85 ms-Button-icon icon-80"
+              data-icon-name="Clock"
+              role="presentation"
+              style={
+                Object {
+                  "fontFamily": "\\"FabricMDL2Icons-2\\"",
+                }
+              }
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        className=""
+        id="ComboBox81-error"
+        role="region"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox Birthdate Example 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value="Wed Jan 01 1975"
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox Initial 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-ComboBox-container "
+    >
+      <div
+        className="ms-ComboBox css-69"
+        id="ComboBox8wrapper"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-ComboBox-Input css-70"
+          data-is-interactable={true}
+          data-lpignore={true}
+          id="ComboBox8-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onTouchStart={[Function]}
+          readOnly={true}
+          role="combobox"
+          spellCheck={false}
+          type="text"
+          value=""
+        />
+        <button
+          aria-hidden={true}
+          className="ms-Button ms-Button--icon ms-ComboBox-CaretDown-button root-77"
+          data-is-focusable={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          role="presentation"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="ms-Button-flexContainer flexContainer-78"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden={true}
+              className="ms-Icon root-37 css-85 ms-Button-icon icon-80"
+              data-icon-name="Clock"
+              role="presentation"
+              style={
+                Object {
+                  "fontFamily": "\\"FabricMDL2Icons-2\\"",
+                }
+              }
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        className=""
+        id="ComboBox8-error"
+        role="region"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox With props is24 true 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-ComboBox-container "
+    >
+      <div
+        className="ms-ComboBox css-69"
+        id="ComboBox26wrapper"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-ComboBox-Input css-70"
+          data-is-interactable={true}
+          data-lpignore={true}
+          id="ComboBox26-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onTouchStart={[Function]}
+          readOnly={true}
+          role="combobox"
+          spellCheck={false}
+          type="text"
+          value=""
+        />
+        <button
+          aria-hidden={true}
+          className="ms-Button ms-Button--icon ms-ComboBox-CaretDown-button root-77"
+          data-is-focusable={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          role="presentation"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="ms-Button-flexContainer flexContainer-78"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden={true}
+              className="ms-Icon root-37 css-85 ms-Button-icon icon-80"
+              data-icon-name="Clock"
+              role="presentation"
+              style={
+                Object {
+                  "fontFamily": "\\"FabricMDL2Icons-2\\"",
+                }
+              }
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        className=""
+        id="ComboBox26-error"
+        role="region"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox With props isDateOnly true 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox With props label Label 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <label
+                className="ms-Label root-86"
+                htmlFor="datetimeBox1-label"
+                id="TextFieldLabel16"
+              >
+                Label
+              </label>
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  aria-labelledby="TextFieldLabel16"
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--with-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-ComboBox-container "
+    >
+      <label
+        className="ms-Label root-86"
+        id="ComboBox17-label"
+      >
+        _
+      </label>
+      <div
+        className="ms-ComboBox css-69"
+        id="ComboBox17wrapper"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          aria-labelledby="ComboBox17-label"
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-ComboBox-Input css-70"
+          data-is-interactable={true}
+          data-lpignore={true}
+          id="ComboBox17-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onTouchStart={[Function]}
+          readOnly={true}
+          role="combobox"
+          spellCheck={false}
+          type="text"
+          value=""
+        />
+        <button
+          aria-hidden={true}
+          className="ms-Button ms-Button--icon ms-ComboBox-CaretDown-button root-77"
+          data-is-focusable={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          role="presentation"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="ms-Button-flexContainer flexContainer-78"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden={true}
+              className="ms-Icon root-37 css-85 ms-Button-icon icon-80"
+              data-icon-name="Clock"
+              role="presentation"
+              style={
+                Object {
+                  "fontFamily": "\\"FabricMDL2Icons-2\\"",
+                }
+              }
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        className=""
+        id="ComboBox17-error"
+        role="region"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox With props onSelectDatetime 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-ComboBox-container "
+    >
+      <div
+        className="ms-ComboBox css-69"
+        id="ComboBox62wrapper"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-ComboBox-Input css-70"
+          data-is-interactable={true}
+          data-lpignore={true}
+          id="ComboBox62-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onTouchStart={[Function]}
+          readOnly={true}
+          role="combobox"
+          spellCheck={false}
+          type="text"
+          value=""
+        />
+        <button
+          aria-hidden={true}
+          className="ms-Button ms-Button--icon ms-ComboBox-CaretDown-button root-77"
+          data-is-focusable={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          role="presentation"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="ms-Button-flexContainer flexContainer-78"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden={true}
+              className="ms-Icon root-37 css-85 ms-Button-icon icon-80"
+              data-icon-name="Clock"
+              role="presentation"
+              style={
+                Object {
+                  "fontFamily": "\\"FabricMDL2Icons-2\\"",
+                }
+              }
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        className=""
+        id="ComboBox62-error"
+        role="region"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox With props tooltip I am a Tooltip 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-ComboBox-container "
+    >
+      <div
+        className="ms-ComboBox css-69"
+        id="ComboBox53wrapper"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-ComboBox-Input css-70"
+          data-is-interactable={true}
+          data-lpignore={true}
+          id="ComboBox53-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onTouchStart={[Function]}
+          readOnly={true}
+          role="combobox"
+          spellCheck={false}
+          type="text"
+          value=""
+        />
+        <button
+          aria-hidden={true}
+          className="ms-Button ms-Button--icon ms-ComboBox-CaretDown-button root-77"
+          data-is-focusable={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          role="presentation"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="ms-Button-flexContainer flexContainer-78"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden={true}
+              className="ms-Icon root-37 css-85 ms-Button-icon icon-80"
+              data-icon-name="Clock"
+              role="presentation"
+              style={
+                Object {
+                  "fontFamily": "\\"FabricMDL2Icons-2\\"",
+                }
+              }
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        className=""
+        id="ComboBox53-error"
+        role="region"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox With props value Date 1/1/2020 13:00 Military 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value="Wed Jan 01 2020"
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-ComboBox-container "
+    >
+      <div
+        className="ms-ComboBox css-69"
+        id="ComboBox44wrapper"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-ComboBox-Input css-70"
+          data-is-interactable={true}
+          data-lpignore={true}
+          id="ComboBox44-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onTouchStart={[Function]}
+          readOnly={true}
+          role="combobox"
+          spellCheck={false}
+          type="text"
+          value="13:00"
+        />
+        <button
+          aria-hidden={true}
+          className="ms-Button ms-Button--icon ms-ComboBox-CaretDown-button root-77"
+          data-is-focusable={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          role="presentation"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="ms-Button-flexContainer flexContainer-78"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden={true}
+              className="ms-Icon root-37 css-85 ms-Button-icon icon-80"
+              data-icon-name="Clock"
+              role="presentation"
+              style={
+                Object {
+                  "fontFamily": "\\"FabricMDL2Icons-2\\"",
+                }
+              }
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        className=""
+        id="ComboBox44-error"
+        role="region"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DatetimeBox With props value Date 1/1/2020 13:00 Standard 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value="Wed Jan 01 2020"
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-ComboBox-container "
+    >
+      <div
+        className="ms-ComboBox css-69"
+        id="ComboBox35wrapper"
+      >
+        <input
+          aria-autocomplete="both"
+          aria-expanded={false}
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-ComboBox-Input css-70"
+          data-is-interactable={true}
+          data-lpignore={true}
+          id="ComboBox35-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onCompositionEnd={[Function]}
+          onCompositionStart={[Function]}
+          onCompositionUpdate={[Function]}
+          onFocus={[Function]}
+          onInput={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onTouchStart={[Function]}
+          readOnly={true}
+          role="combobox"
+          spellCheck={false}
+          type="text"
+          value="1:00 PM"
+        />
+        <button
+          aria-hidden={true}
+          className="ms-Button ms-Button--icon ms-ComboBox-CaretDown-button root-77"
+          data-is-focusable={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          role="presentation"
+          tabIndex={-1}
+          type="button"
+        >
+          <span
+            className="ms-Button-flexContainer flexContainer-78"
+            data-automationid="splitbuttonprimary"
+          >
+            <i
+              aria-hidden={true}
+              className="ms-Icon root-37 css-85 ms-Button-icon icon-80"
+              data-icon-name="Clock"
+              role="presentation"
+              style={
+                Object {
+                  "fontFamily": "\\"FabricMDL2Icons-2\\"",
+                }
+              }
+            >
+              
+            </i>
+          </span>
+        </button>
+      </div>
+      <div
+        aria-atomic="true"
+        aria-live="polite"
+        className=""
+        id="ComboBox35-error"
+        role="region"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
