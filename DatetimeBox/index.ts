@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { IInputs, IOutputs } from "./generated/ManifestTypes";
+import { IInputs, IOutputs } from "./generated/ManifestTypes"; // eslint-disable-line
 
 import DtB from "../src/jsx/datetimeBox";
 
@@ -8,16 +8,12 @@ export class DatetimeBox
   implements ComponentFramework.StandardControl<IInputs, IOutputs> {
   private container: HTMLDivElement;
   private notifyOutputChanged: () => void;
-  private currentValue: object | null;
-  private endValue: object | null;
+  private currentValue: Date | null;
+  private endValue: Date | null;
   private updatedByReact: boolean;
   private tooltip: string;
   private is24: boolean;
   private isTimeRange: boolean;
-  /**
-   * Empty constructor.
-   */
-  constructor() {}
 
   /**
    * Used to initialize the control instance. Controls can kick off remote server calls and other initialization actions here.
@@ -37,8 +33,8 @@ export class DatetimeBox
 
     this.container = container;
     this.notifyOutputChanged = notifyOutputChanged;
-    this.currentValue = (value && value.raw) || null;
-    this.endValue = (endValue && endValue.raw) || null;
+    this.currentValue = value && value.raw;
+    this.endValue = endValue && endValue.raw;
     this.updatedByReact = false;
     this.tooltip = (tooltip && tooltip.raw) || "";
     this.is24 = (is24 && is24.raw === "true") || false;
@@ -72,15 +68,20 @@ export class DatetimeBox
    */
   public updateView(context: ComponentFramework.Context<IInputs>): void {
     // Add code to update control view
-    const { value } = context.parameters;
+    const { value, endValue } = context.parameters;
 
     if (this.updatedByReact) {
-      if (this.currentValue === value.raw) this.updatedByReact = false;
+      if (
+        (value && this.currentValue === value.raw) ||
+        (endValue && this.endValue === endValue.raw)
+      )
+        this.updatedByReact = false;
 
       return;
     }
 
-    this.currentValue = value.raw || null;
+    this.currentValue = value && value.raw;
+    this.endValue = endValue && endValue.raw;
 
     ReactDOM.render(
       // @ts-ignore
@@ -108,11 +109,11 @@ export class DatetimeBox
    * @returns an object based on nomenclature defined in manifest, expecting object[s] for property marked as “bound” or “output”
    */
   public getOutputs(): IOutputs {
-    //@ts-ignore
-
     if (this.isTimeRange)
+      // @ts-ignore
       return { value: this.currentValue, endValue: this.endValue };
-    else return { value: this.currentValue };
+    // @ts-ignore
+    return { value: this.currentValue };
   }
 
   /**

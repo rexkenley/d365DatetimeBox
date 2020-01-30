@@ -8,6 +8,7 @@
 
 # output directory
 /out
+/deploy
 
 # msbuild output directories
 /bin
