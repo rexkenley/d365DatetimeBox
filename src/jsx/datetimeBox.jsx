@@ -9,6 +9,7 @@ import Handlebars from "handlebars";
 import HandlebarsIntl from "handlebars-intl";
 
 import { setDatetime, get12Hours, get24Hours } from "../js/datetime";
+import ManualTimeBox from "./manualTimeBox";
 
 /** @module datetimeBox */
 
@@ -56,7 +57,8 @@ const datetimeBoxId = getId("datetimeBox"),
         tooltip,
         onSelectDatetime,
         is24,
-        isDateOnly
+        isDateOnly,
+        isManual
       } = props,
       options = is24 ? get24Hours() : get12Hours(),
       [date, setDate] = useState(),
@@ -67,33 +69,37 @@ const datetimeBoxId = getId("datetimeBox"),
       setDate(value);
       setTime(
         value &&
-          options.find(o => {
-            return (
-              o.key ===
-              `${value
-                .getHours()
-                .toString()
-                .padStart(2, "0")}:${value
-                .getMinutes()
-                .toString()
-                .padStart(2, "0")}`
-            );
-          })
+          (isManual
+            ? value
+            : options.find(o => {
+                return (
+                  o.key ===
+                  `${value
+                    .getHours()
+                    .toString()
+                    .padStart(2, "0")}:${value
+                    .getMinutes()
+                    .toString()
+                    .padStart(2, "0")}`
+                );
+              }))
       );
       setEndTime(
         endValue &&
-          options.find(o => {
-            return (
-              o.key ===
-              `${endValue
-                .getHours()
-                .toString()
-                .padStart(2, "0")}:${endValue
-                .getMinutes()
-                .toString()
-                .padStart(2, "0")}`
-            );
-          })
+          (isManual
+            ? endValue
+            : options.find(o => {
+                return (
+                  o.key ===
+                  `${endValue
+                    .getHours()
+                    .toString()
+                    .padStart(2, "0")}:${endValue
+                    .getMinutes()
+                    .toString()
+                    .padStart(2, "0")}`
+                );
+              }))
       );
     }, [value, endValue]);
 
@@ -125,50 +131,87 @@ const datetimeBoxId = getId("datetimeBox"),
               allowTextInput
             />
           </TooltipHost>
-          {!isDateOnly && (
-            <ComboBox
-              autoComplete="on"
-              useComboBoxAsMenuWidth
-              buttonIconProps={{ iconName: "Clock" }}
-              multiSelect={false}
-              label={label && "_"}
-              options={options}
-              selectedKey={time && time.key}
-              onChange={(event, option) => {
-                setTime(option);
+          {!isDateOnly &&
+            (isManual ? (
+              <ManualTimeBox
+                label={label && "_"}
+                value={value}
+                is24={is24}
+                onTimeChange={local => {
+                  setTime(local);
 
-                const result = { value: setDatetime(date, option) };
+                  const result = { value: setDatetime(date, local) };
 
-                if (isTimeRange)
-                  Object.assign(result, {
-                    endValue: setDatetime(date, endTime)
-                  });
+                  if (isTimeRange)
+                    Object.assign(result, {
+                      endValue: setDatetime(date, endTime)
+                    });
 
-                onSelectDatetime && onSelectDatetime(result);
-              }}
-            />
-          )}
-          {isTimeRange && (
-            <ComboBox
-              autoComplete="on"
-              useComboBoxAsMenuWidth
-              buttonIconProps={{ iconName: "Clock" }}
-              multiSelect={false}
-              label={label && "_"}
-              options={options}
-              selectedKey={endTime && endTime.key}
-              onChange={(event, option) => {
-                setEndTime(option);
+                  onSelectDatetime && onSelectDatetime(result);
+                }}
+              />
+            ) : (
+              <ComboBox
+                autoComplete="on"
+                useComboBoxAsMenuWidth
+                buttonIconProps={{ iconName: "Clock" }}
+                multiSelect={false}
+                label={label && "_"}
+                options={options}
+                selectedKey={time && time.key}
+                onChange={(event, option) => {
+                  setTime(option);
 
-                const result = {
-                  value: setDatetime(date, time),
-                  endValue: setDatetime(date, option)
-                };
+                  const result = { value: setDatetime(date, option) };
 
-                onSelectDatetime && onSelectDatetime(result);
-              }}
-            />
-          )}
+                  if (isTimeRange)
+                    Object.assign(result, {
+                      endValue: setDatetime(date, endTime)
+                    });
+
+                  onSelectDatetime && onSelectDatetime(result);
+                }}
+              />
+            ))}
+          {!isDateOnly &&
+            isTimeRange &&
+            (isManual ? (
+              <ManualTimeBox
+                label={label && "_"}
+                value={value}
+                is24={is24}
+                onTimeChange={local => {
+                  setEndTime(local);
+
+                  const result = {
+                    value: setDatetime(date, time),
+                    endValue: setDatetime(date, local)
+                  };
+
+                  onSelectDatetime && onSelectDatetime(result);
+                }}
+              />
+            ) : (
+              <ComboBox
+                autoComplete="on"
+                useComboBoxAsMenuWidth
+                buttonIconProps={{ iconName: "Clock" }}
+                multiSelect={false}
+                label={label && "_"}
+                options={options}
+                selectedKey={endTime && endTime.key}
+                onChange={(event, option) => {
+                  setEndTime(option);
+
+                  const result = {
+                    value: setDatetime(date, time),
+                    endValue: setDatetime(date, option)
+                  };
+
+                  onSelectDatetime && onSelectDatetime(result);
+                }}
+              />
+            ))}
         </Stack>
       </Fabric>
     );

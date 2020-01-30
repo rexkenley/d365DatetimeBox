@@ -27,6 +27,16 @@ storiesOf("DatetimeBox", module)
       onSelectDatetime={action("onSelectDatetime")}
     />
   ))
+  .add(
+    "With props isTimeRange true, isMenual true and onSelectDatetime",
+    () => (
+      <DatetimeBox
+        isTimeRange={true}
+        isManual={true}
+        onSelectDatetime={action("onSelectDatetime")}
+      />
+    )
+  )
   .add("Birthdate Example", () => (
     <DatetimeBox
       isDateOnly={true}

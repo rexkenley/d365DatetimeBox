@@ -23,7 +23,7 @@ export function setDatetime(date, time) {
         .padStart(2, "0")}-${date
         .getDate()
         .toString()
-        .padStart(2, "0")} ${(time && time.key) || "00:00"}`
+        .padStart(2, "0")} ${(time && time.key ? time.key : time) || "00:00"}`
     )
   );
 }
