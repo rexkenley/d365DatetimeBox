@@ -59,37 +59,9 @@ const datetimeBoxId = getId("datetimeBox"),
         isDateOnly
       } = props,
       options = is24 ? get24Hours() : get12Hours(),
-      [date, setDate] = useState(value),
-      [time, setTime] = useState(
-        value &&
-          options.find(o => {
-            return (
-              o.key ===
-              `${value
-                .getHours() // eslint-disable-line
-                .toString()
-                .padStart(2, "0")}:${value
-                .getMinutes() // eslint-disable-line
-                .toString()
-                .padStart(2, "0")}`
-            );
-          })
-      ),
-      [endTime, setEndTime] = useState(
-        endValue &&
-          options.find(o => {
-            return (
-              o.key ===
-              `${endValue
-                .getHours() // eslint-disable-line
-                .toString()
-                .padStart(2, "0")}:${endValue
-                .getMinutes() // eslint-disable-line
-                .toString()
-                .padStart(2, "0")}`
-            );
-          })
-      );
+      [date, setDate] = useState(),
+      [time, setTime] = useState(),
+      [endTime, setEndTime] = useState();
 
     useEffect(() => {
       setDate(value);
@@ -108,7 +80,22 @@ const datetimeBoxId = getId("datetimeBox"),
             );
           })
       );
-    }, [value]);
+      setEndTime(
+        endValue &&
+          options.find(o => {
+            return (
+              o.key ===
+              `${endValue
+                .getHours()
+                .toString()
+                .padStart(2, "0")}:${endValue
+                .getMinutes()
+                .toString()
+                .padStart(2, "0")}`
+            );
+          })
+      );
+    }, [value, endValue]);
 
     return (
       <Fabric>
