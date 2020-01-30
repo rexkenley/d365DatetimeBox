@@ -10,6 +10,14 @@ An enhanced datetime box
   - [Format Dates Relative To "now"](https://formatjs.io/handlebars/#formatRelative)
 - A date time range
 
+**Settings**
+
+- value - date time field
+- endValue - date time field
+- tooltip - template string capable tooltip
+- is24 - true to display military time
+- isTimeRange - true to display end date time
+
 **Testing and Review**
 
 - npm run storybook
