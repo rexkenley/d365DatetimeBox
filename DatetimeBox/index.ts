@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Fabric } from "office-ui-fabric-react/lib/Fabric";
 import { IInputs, IOutputs } from "./generated/ManifestTypes"; // eslint-disable-line
 
 import DtB from "../src/jsx/datetimeBox";
@@ -14,6 +15,9 @@ export class DatetimeBox
   private tooltip: string;
   private is24: boolean;
   private isTimeRange: boolean;
+  private isManual: boolean;
+  private isControlDisabled: boolean;
+  private isVisible: boolean;
 
   /**
    * Used to initialize the control instance. Controls can kick off remote server calls and other initialization actions here.
@@ -29,7 +33,9 @@ export class DatetimeBox
     state: ComponentFramework.Dictionary,
     container: HTMLDivElement
   ) {
-    const { value, endValue, tooltip, is24, isTimeRange } = context.parameters;
+    const { parameters, mode } = context,
+      { value, endValue, tooltip, is24, isTimeRange, isManual } = parameters,
+      { isControlDisabled, isVisible } = mode;
 
     this.container = container;
     this.notifyOutputChanged = notifyOutputChanged;
@@ -39,27 +45,33 @@ export class DatetimeBox
     this.tooltip = (tooltip && tooltip.raw) || "";
     this.is24 = (is24 && is24.raw === "true") || false;
     this.isTimeRange = (isTimeRange && isTimeRange.raw === "true") || false;
+    this.isManual = (isManual && isManual.raw === "true") || false;
+    this.isControlDisabled = isControlDisabled;
+    this.isVisible = isVisible;
 
-    // Add control initialization code
-    ReactDOM.render(
-      // @ts-ignore
-      React.createElement(DtB, {
+    if (this.isVisible) {
+      // Add control initialization code
+      ReactDOM.render(
         // @ts-ignore
-        value: this.currentValue,
-        endValue: this.endValue,
-        tooltip: this.tooltip,
-        is24: this.is24,
-        isTimeRange: this.isTimeRange,
-        isDateOnly: value.type === "DateAndTime.DateOnly",
-        onSelectDatetime: result => {
-          this.currentValue = result.value;
-          this.endValue = result.endValue;
-          this.updatedByReact = true;
-          this.notifyOutputChanged();
-        }
-      }),
-      this.container
-    );
+        React.createElement(DtB, {
+          // @ts-ignore
+          value: this.currentValue,
+          endValue: this.endValue,
+          tooltip: this.tooltip,
+          is24: this.is24,
+          isTimeRange: this.isTimeRange,
+          isManual: this.isManual,
+          isDateOnly: value.type === "DateAndTime.DateOnly",
+          onSelectDatetime: result => {
+            this.currentValue = result.value;
+            this.endValue = result.endValue;
+            this.updatedByReact = true;
+            this.notifyOutputChanged();
+          }
+        }),
+        this.container
+      );
+    }
   }
 
   /**
@@ -68,9 +80,17 @@ export class DatetimeBox
    */
   public updateView(context: ComponentFramework.Context<IInputs>): void {
     // Add code to update control view
-    const { value, endValue } = context.parameters;
+    const { parameters, mode } = context,
+      { value, endValue } = parameters,
+      { isControlDisabled, isVisible } = mode;
 
-    if (this.updatedByReact) {
+    if (
+      this.isVisible !== isVisible ||
+      this.isControlDisabled !== isControlDisabled
+    ) {
+      this.isControlDisabled = isControlDisabled;
+      this.isVisible = isVisible;
+    } else if (this.updatedByReact) {
       if (
         (value && this.currentValue === value.raw) ||
         (endValue && this.endValue === endValue.raw)
@@ -83,25 +103,28 @@ export class DatetimeBox
     this.currentValue = value && value.raw;
     this.endValue = endValue && endValue.raw;
 
-    ReactDOM.render(
-      // @ts-ignore
-      React.createElement(DtB, {
+    if (this.isVisible) {
+      ReactDOM.render(
         // @ts-ignore
-        value: this.currentValue,
-        endValue: this.endValue,
-        tooltip: this.tooltip,
-        is24: this.is24,
-        isTimeRange: this.isTimeRange,
-        isDateOnly: value.type === "DateAndTime.DateOnly",
-        onSelectDatetime: result => {
-          this.currentValue = result.value;
-          this.endValue = result.endValue;
-          this.updatedByReact = true;
-          this.notifyOutputChanged();
-        }
-      }),
-      this.container
-    );
+        React.createElement(DtB, {
+          // @ts-ignore
+          value: this.currentValue,
+          endValue: this.endValue,
+          tooltip: this.tooltip,
+          is24: this.is24,
+          isTimeRange: this.isTimeRange,
+          isManual: this.isManual,
+          isDateOnly: value.type === "DateAndTime.DateOnly",
+          onSelectDatetime: result => {
+            this.currentValue = result.value;
+            this.endValue = result.endValue;
+            this.updatedByReact = true;
+            this.notifyOutputChanged();
+          }
+        }),
+        this.container
+      );
+    }
   }
 
   /**

@@ -798,6 +798,232 @@ exports[`Storyshots DatetimeBox With props isTimeRange true and onSelectDatetime
 </div>
 `;
 
+exports[`Storyshots DatetimeBox With props isTimeRange true, isMenual true and onSelectDatetime 1`] = `
+<div
+  className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+  dir="ltr"
+>
+  <div
+    className="ms-Stack css-51"
+  >
+    <div
+      className="ms-TooltipHost root-52"
+      onBlurCapture={[Function]}
+      onFocusCapture={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="ms-DatePicker root-53"
+        id="datetimeBox1"
+      >
+        <div
+          aria-haspopup="true"
+        >
+          <div
+            className="ms-TextField textField-58"
+          >
+            <div
+              className="ms-TextField-wrapper wrapper-59"
+            >
+              <div
+                className="ms-TextField-fieldGroup fieldGroup-60"
+              >
+                <input
+                  aria-expanded={false}
+                  aria-invalid={false}
+                  className="ms-TextField-field field-61"
+                  id="datetimeBox1-label"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onInput={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="---"
+                  readOnly={false}
+                  required={false}
+                  role="combobox"
+                  type="text"
+                  value=""
+                />
+                <i
+                  aria-hidden={true}
+                  className="ms-DatePicker-event--without-label msDatePickerDisabled icon-68"
+                  data-icon-name="Calendar"
+                  onClick={[Function]}
+                >
+                  
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+      dir="ltr"
+    >
+      <div
+        className="ms-Stack css-51"
+      >
+        <div
+          className="ms-TextField root-87"
+        >
+          <div
+            className="ms-TextField-wrapper wrapper-59"
+          >
+            <div
+              className="ms-TextField-fieldGroup fieldGroup-60"
+            >
+              <input
+                aria-invalid={false}
+                className="ms-TextField-field field-88"
+                id="TextField89"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onPaste={[Function]}
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="ms-Dropdown-container root-89"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            className="ms-Dropdown dropdown-91"
+            data-is-focusable={true}
+            id="Dropdown92"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            role="listbox"
+            tabIndex={0}
+          >
+            <span
+              aria-atomic={true}
+              aria-invalid={false}
+              aria-live="polite"
+              aria-setsize={2}
+              className="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-92"
+              id="Dropdown92-option"
+              role="option"
+            >
+              --
+            </span>
+            <span
+              className="ms-Dropdown-caretDownWrapper caretDownWrapper-93"
+            >
+              <i
+                aria-hidden={true}
+                className="ms-Dropdown-caretDown caretDown-107"
+                data-icon-name="ChevronDown"
+              >
+                
+              </i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"
+      dir="ltr"
+    >
+      <div
+        className="ms-Stack css-51"
+      >
+        <div
+          className="ms-TextField root-87"
+        >
+          <div
+            className="ms-TextField-wrapper wrapper-59"
+          >
+            <div
+              className="ms-TextField-fieldGroup fieldGroup-60"
+            >
+              <input
+                aria-invalid={false}
+                className="ms-TextField-field field-88"
+                id="TextField93"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onInput={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                onPaste={[Function]}
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="ms-Dropdown-container root-89"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            className="ms-Dropdown dropdown-91"
+            data-is-focusable={true}
+            id="Dropdown96"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            role="listbox"
+            tabIndex={0}
+          >
+            <span
+              aria-atomic={true}
+              aria-invalid={false}
+              aria-live="polite"
+              aria-setsize={2}
+              className="ms-Dropdown-title ms-Dropdown-titleIsPlaceHolder title-92"
+              id="Dropdown96-option"
+              role="option"
+            >
+              --
+            </span>
+            <span
+              className="ms-Dropdown-caretDownWrapper caretDownWrapper-93"
+            >
+              <i
+                aria-hidden={true}
+                className="ms-Dropdown-caretDown caretDown-107"
+                data-icon-name="ChevronDown"
+              >
+                
+              </i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots DatetimeBox With props label Label 1`] = `
 <div
   className="ms-Fabric is-focusHidden ms-Fabric--isFocusHidden root-49"

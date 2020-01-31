@@ -13,6 +13,7 @@ storiesOf("ManualTimeBox", module)
   .add("With props is24 and value", () => (
     <ManualTimeBox is24={true} value={time} />
   ))
+  .add("With props disabled", () => <ManualTimeBox disabled />)
   .add("With props onTimeChange", () => (
     <ManualTimeBox onTimeChange={action("onTimeChange")} />
   ));

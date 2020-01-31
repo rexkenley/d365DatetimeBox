@@ -17,23 +17,22 @@ initializeIcons();
 HandlebarsIntl.registerWith(Handlebars);
 
 /**
+ * @module datetimeBox/DatetimeBoxProps
  * @typedef {{}} DatetimeBoxProps
  * @property {string} label
- * @property {{}} value - Date value
+ * @property {{}} value - datetime value
+ * @property {boolean} isTimeRange - display second time box
+ * @property {{}} endValue - end datetime value
  * @property {string} tooltip - a Handlebar enabled string
  * @property {function} onSelectDatetime - a callback fired when date or time values changed
  * @property {boolean} is24 - 24 hours if true, otherwise 12 hours
  * @property {boolean} isDateOnly - will display time dropdown if true
+ * @property {boolean} isManual - allow manual time entry
+ * @property {boolean} disabled - lock control
  */
 
 const datetimeBoxId = getId("datetimeBox"),
   tooltipId = getId("tooltip"),
-  /**
-   * Sets the tooltip content by merging the tooltip and value
-   * @param {string} tooltip
-   * @param {{}} value - Date
-   * @returns {string}
-   */
   setTooltip = (tooltip, value) => {
     if (!tooltip || (tooltip.indexOf("{{") > -1 && !value)) return "";
 
@@ -43,12 +42,14 @@ const datetimeBoxId = getId("datetimeBox"),
 
     return (template && template({ value })) || "";
   },
-  /** Datetimebox
+  /**
+   * DatetimeBox
+   * @module datetimeBox/Datetimebox
+   * @function
    * @param {DatetimeBoxProps} props
    * @returns {{}}
    */
   DatetimeBox = props => {
-    // eslint-disable-next-line
     const {
         label,
         value,
@@ -58,12 +59,25 @@ const datetimeBoxId = getId("datetimeBox"),
         onSelectDatetime,
         is24,
         isDateOnly,
-        isManual
+        isManual,
+        disabled
       } = props,
       options = is24 ? get24Hours() : get12Hours(),
       [date, setDate] = useState(),
       [time, setTime] = useState(),
-      [endTime, setEndTime] = useState();
+      [endTime, setEndTime] = useState(),
+      onTimeChange = val => {
+        setTime(val);
+
+        const result = { value: setDatetime(date, val) };
+
+        if (isTimeRange)
+          Object.assign(result, {
+            endValue: setDatetime(date, endTime)
+          });
+
+        onSelectDatetime && onSelectDatetime(result);
+      };
 
     useEffect(() => {
       setDate(value);
@@ -114,6 +128,7 @@ const datetimeBoxId = getId("datetimeBox"),
               id={datetimeBoxId}
               label={label}
               value={date}
+              disabled={disabled}
               onSelectDate={selected => {
                 setDate(selected);
                 if (!selected) setTime(null);
@@ -137,18 +152,8 @@ const datetimeBoxId = getId("datetimeBox"),
                 label={label && "_"}
                 value={value}
                 is24={is24}
-                onTimeChange={local => {
-                  setTime(local);
-
-                  const result = { value: setDatetime(date, local) };
-
-                  if (isTimeRange)
-                    Object.assign(result, {
-                      endValue: setDatetime(date, endTime)
-                    });
-
-                  onSelectDatetime && onSelectDatetime(result);
-                }}
+                disabled={disabled}
+                onTimeChange={onTimeChange}
               />
             ) : (
               <ComboBox
@@ -159,17 +164,9 @@ const datetimeBoxId = getId("datetimeBox"),
                 label={label && "_"}
                 options={options}
                 selectedKey={time && time.key}
+                disabled={disabled}
                 onChange={(event, option) => {
-                  setTime(option);
-
-                  const result = { value: setDatetime(date, option) };
-
-                  if (isTimeRange)
-                    Object.assign(result, {
-                      endValue: setDatetime(date, endTime)
-                    });
-
-                  onSelectDatetime && onSelectDatetime(result);
+                  onTimeChange(option);
                 }}
               />
             ))}
@@ -180,16 +177,8 @@ const datetimeBoxId = getId("datetimeBox"),
                 label={label && "_"}
                 value={value}
                 is24={is24}
-                onTimeChange={local => {
-                  setEndTime(local);
-
-                  const result = {
-                    value: setDatetime(date, time),
-                    endValue: setDatetime(date, local)
-                  };
-
-                  onSelectDatetime && onSelectDatetime(result);
-                }}
+                disabled={disabled}
+                onTimeChange={onTimeChange}
               />
             ) : (
               <ComboBox
@@ -200,15 +189,9 @@ const datetimeBoxId = getId("datetimeBox"),
                 label={label && "_"}
                 options={options}
                 selectedKey={endTime && endTime.key}
+                disabled={disabled}
                 onChange={(event, option) => {
-                  setEndTime(option);
-
-                  const result = {
-                    value: setDatetime(date, time),
-                    endValue: setDatetime(date, option)
-                  };
-
-                  onSelectDatetime && onSelectDatetime(result);
+                  onTimeChange(option);
                 }}
               />
             ))}
