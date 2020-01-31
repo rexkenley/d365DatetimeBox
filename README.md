@@ -8,7 +8,7 @@ An enhanced datetime box
 - Customizable tooltip
   - [Handlebars Guide](https://handlebarsjs.com/guide/)
   - [Format Dates Relative To "now"](https://formatjs.io/handlebars/#formatRelative)
-- A date time range
+- A date time range in either dropdown or manual entry mode
 
 **Settings**
 
@@ -21,7 +21,7 @@ An enhanced datetime box
 **Testing and Review**
 
 - npm run storybook
-  - _Note: If you get an error, run **npm run test:output**_
+  - _Note: If you get an error, make sure you have a \***\*results** folder in test** and run **npm run test:output\*\*_
 - npm run test
 
 **Create deployment file**

@@ -6,6 +6,7 @@ import DatetimeBox from "../src/jsx/datetimeBox";
 
 storiesOf("DatetimeBox", module)
   .add("Initial", () => <DatetimeBox />)
+  .add("With props hidden", () => <DatetimeBox hidden />)
   .add("With props isTimeRange and disabled", () => (
     <DatetimeBox isTimeRange disabled />
   ))
@@ -50,5 +51,9 @@ storiesOf("DatetimeBox", module)
     />
   ))
   .add("Appointment Example", () => (
-    <DatetimeBox value={new Date("1/1/2020 13:00")} />
+    <DatetimeBox
+      isTimeRange
+      value={new Date("1/1/2020 13:00")}
+      endValue={new Date("1/1/2020 14:00")}
+    />
   ));

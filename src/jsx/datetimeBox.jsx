@@ -60,7 +60,8 @@ const datetimeBoxId = getId("datetimeBox"),
         is24,
         isDateOnly,
         isManual,
-        disabled
+        disabled,
+        hidden
       } = props,
       options = is24 ? get24Hours() : get12Hours(),
       [date, setDate] = useState(),
@@ -126,6 +127,8 @@ const datetimeBoxId = getId("datetimeBox"),
               }))
       );
     }, [value, endValue]);
+
+    if (hidden) return <Fabric />;
 
     return (
       <Fabric>

@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Fabric } from "office-ui-fabric-react/lib/Fabric";
 import { IInputs, IOutputs } from "./generated/ManifestTypes"; // eslint-disable-line
 
 import DtB from "../src/jsx/datetimeBox";
@@ -49,29 +48,29 @@ export class DatetimeBox
     this.isControlDisabled = isControlDisabled;
     this.isVisible = isVisible;
 
-    if (this.isVisible) {
-      // Add control initialization code
-      ReactDOM.render(
+    // Add control initialization code
+    ReactDOM.render(
+      // @ts-ignore
+      React.createElement(DtB, {
         // @ts-ignore
-        React.createElement(DtB, {
-          // @ts-ignore
-          value: this.currentValue,
-          endValue: this.endValue,
-          tooltip: this.tooltip,
-          is24: this.is24,
-          isTimeRange: this.isTimeRange,
-          isManual: this.isManual,
-          isDateOnly: value.type === "DateAndTime.DateOnly",
-          onSelectDatetime: result => {
-            this.currentValue = result.value;
-            this.endValue = result.endValue;
-            this.updatedByReact = true;
-            this.notifyOutputChanged();
-          }
-        }),
-        this.container
-      );
-    }
+        value: this.currentValue,
+        endValue: this.endValue,
+        tooltip: this.tooltip,
+        is24: this.is24,
+        isTimeRange: this.isTimeRange,
+        isManual: this.isManual,
+        disabled: this.isControlDisabled,
+        hidden: !this.isVisible,
+        isDateOnly: value.type === "DateAndTime.DateOnly",
+        onSelectDatetime: result => {
+          this.currentValue = result.value;
+          this.endValue = result.endValue;
+          this.updatedByReact = true;
+          this.notifyOutputChanged();
+        }
+      }),
+      this.container
+    );
   }
 
   /**
@@ -84,13 +83,7 @@ export class DatetimeBox
       { value, endValue } = parameters,
       { isControlDisabled, isVisible } = mode;
 
-    if (
-      this.isVisible !== isVisible ||
-      this.isControlDisabled !== isControlDisabled
-    ) {
-      this.isControlDisabled = isControlDisabled;
-      this.isVisible = isVisible;
-    } else if (this.updatedByReact) {
+    if (this.updatedByReact) {
       if (
         (value && this.currentValue === value.raw) ||
         (endValue && this.endValue === endValue.raw)
@@ -100,31 +93,39 @@ export class DatetimeBox
       return;
     }
 
+    if (
+      this.isVisible !== isVisible ||
+      this.isControlDisabled !== isControlDisabled
+    ) {
+      this.isControlDisabled = isControlDisabled;
+      this.isVisible = isVisible;
+    }
+
     this.currentValue = value && value.raw;
     this.endValue = endValue && endValue.raw;
 
-    if (this.isVisible) {
-      ReactDOM.render(
+    ReactDOM.render(
+      // @ts-ignore
+      React.createElement(DtB, {
         // @ts-ignore
-        React.createElement(DtB, {
-          // @ts-ignore
-          value: this.currentValue,
-          endValue: this.endValue,
-          tooltip: this.tooltip,
-          is24: this.is24,
-          isTimeRange: this.isTimeRange,
-          isManual: this.isManual,
-          isDateOnly: value.type === "DateAndTime.DateOnly",
-          onSelectDatetime: result => {
-            this.currentValue = result.value;
-            this.endValue = result.endValue;
-            this.updatedByReact = true;
-            this.notifyOutputChanged();
-          }
-        }),
-        this.container
-      );
-    }
+        value: this.currentValue,
+        endValue: this.endValue,
+        tooltip: this.tooltip,
+        is24: this.is24,
+        isTimeRange: this.isTimeRange,
+        isManual: this.isManual,
+        disabled: this.isControlDisabled,
+        hidden: !this.isVisible,
+        isDateOnly: value.type === "DateAndTime.DateOnly",
+        onSelectDatetime: result => {
+          this.currentValue = result.value;
+          this.endValue = result.endValue;
+          this.updatedByReact = true;
+          this.notifyOutputChanged();
+        }
+      }),
+      this.container
+    );
   }
 
   /**
