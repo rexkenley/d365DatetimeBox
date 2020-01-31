@@ -17,6 +17,7 @@ An enhanced datetime box
 - tooltip - template string capable tooltip
 - is24 - true to display military time
 - isTimeRange - true to display end date time
+- isManual - true to allow manual time entry
 
 **Testing and Review**
 
