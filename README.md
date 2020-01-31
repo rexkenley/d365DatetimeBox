@@ -21,7 +21,7 @@ An enhanced datetime box
 **Testing and Review**
 
 - npm run storybook
-  - _Note: If you get an error, make sure you have a \***\*results** folder in test and run **npm run test:output\*\*_
+  - Note: If you get an error, make sure you have a **\_\_results\_\_** folder in test and run **npm run test:output**
 - npm run test
 
 **Create deployment file**
