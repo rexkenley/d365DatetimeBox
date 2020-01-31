@@ -17,8 +17,8 @@ describe("get12Hours function", () => {
     const hours = get12Hours();
     expect(hours.length).toEqual(96);
     expect(hours[0].key).toEqual("00:00");
-    expect(hours[0].text).toEqual("12:00 AM");
-    expect(hours[48].text).toEqual("12:00 PM");
+    expect(hours[0].text).toEqual("12:00 a.m.");
+    expect(hours[48].text).toEqual("12:00 p.m.");
   });
 });
 

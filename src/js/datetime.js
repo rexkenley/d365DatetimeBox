@@ -1,3 +1,5 @@
+import locales from "./locales";
+
 /** @module datetime */
 
 /**
@@ -13,16 +15,7 @@ export const hour12 = new RegExp("^(1[0-2]|0?[1-9]):([0-5]?[0-9])$"),
    * @const {{}}
    * @link https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s06.html
    */
-  hour24 = new RegExp("^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$"),
-  /**
-   * Array of time period
-   * @module datetime/periods
-   * @const {[]}
-   */
-  periods = [
-    { key: "AM", text: "A.M." },
-    { key: "PM", text: "P.M." }
-  ];
+  hour24 = new RegExp("^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$");
 
 /**
  * An options object
@@ -58,10 +51,12 @@ export function setDatetime(date, time) {
  * Returns an array of 12 hour 15 minute interval values
  * @module datetime/get12Hours
  * @function
+ * @param {string} locale - defaults to en-US
  * @returns {Array.<OptionsTime>}
  */
-export function get12Hours() {
-  const hours = [];
+export function get12Hours(locale = "en-US") {
+  const hours = [],
+    { dayPeriod } = locales[locale];
 
   for (let hour = 0; hour < 24; hour += 1) {
     ["00", "15", "30", "45"].forEach(min => {
@@ -70,7 +65,7 @@ export function get12Hours() {
         key: time,
         // eslint-disable-next-line
         text: `${hour === 0 ? "12" : hour > 12 ? hour - 12 : hour}:${min} ${
-          hour < 12 ? "AM" : "PM"
+          hour < 12 ? dayPeriod("am") : dayPeriod("pm")
         }`
       });
     });
@@ -96,4 +91,23 @@ export function get24Hours() {
   }
 
   return hours;
+}
+
+/**
+ * Returns an array of periods
+ * @module datetime/getPeriods
+ * @function
+ * @param {string} locale - defaults to en-US
+ * @returns {[]}
+ */
+export function getPeriods(locale = "en-US") {
+  const periods = [],
+    { dayPeriod } = locales[locale];
+
+  if (locales[locale]) {
+    periods.push({ key: "AM", text: dayPeriod("am") });
+    periods.push({ key: "PM", text: dayPeriod("pm") });
+  }
+
+  return periods;
 }
