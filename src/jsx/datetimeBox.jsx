@@ -77,6 +77,16 @@ const datetimeBoxId = getId("datetimeBox"),
           });
 
         onSelectDatetime && onSelectDatetime(result);
+      },
+      onEndTimeChange = val => {
+        setEndTime(val);
+
+        const result = {
+          value: setDatetime(date, time),
+          endValue: setDatetime(date, val)
+        };
+
+        onSelectDatetime && onSelectDatetime(result);
       };
 
     useEffect(() => {
@@ -178,7 +188,7 @@ const datetimeBoxId = getId("datetimeBox"),
                 value={value}
                 is24={is24}
                 disabled={disabled}
-                onTimeChange={onTimeChange}
+                onTimeChange={onEndTimeChange}
               />
             ) : (
               <ComboBox
@@ -191,7 +201,7 @@ const datetimeBoxId = getId("datetimeBox"),
                 selectedKey={endTime && endTime.key}
                 disabled={disabled}
                 onChange={(event, option) => {
-                  onTimeChange(option);
+                  onEndTimeChange(option);
                 }}
               />
             ))}
