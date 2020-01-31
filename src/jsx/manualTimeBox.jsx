@@ -36,7 +36,10 @@ const ManualTimeBox = props => {
     const localeTime =
       (value && value.toLocaleTimeString("en-US", { hour12: !is24 })) || "";
 
-    setTime(localeTime && localeTime.substr(0, localeTime.search(":") + 3));
+    setTime(
+      localeTime &&
+        localeTime.substr(0, localeTime.search(":") + 3).padStart(5, "0")
+    );
     setPeriod((!is24 && localeTime && localeTime.slice(-2)) || "");
     setError();
   }, [value]);
