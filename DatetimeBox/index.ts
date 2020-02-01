@@ -115,16 +115,10 @@ export class DatetimeBox
       return;
     }
 
-    if (
-      this.isVisible !== isVisible ||
-      this.isControlDisabled !== isControlDisabled
-    ) {
-      this.isControlDisabled = isControlDisabled;
-      this.isVisible = isVisible;
-    }
-
     this.value = value && value.raw;
     this.endValue = endValue && endValue.raw;
+    this.isControlDisabled = isControlDisabled;
+    this.isVisible = isVisible;
 
     ReactDOM.render(
       // @ts-ignore
