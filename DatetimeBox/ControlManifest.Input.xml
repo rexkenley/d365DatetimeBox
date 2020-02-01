@@ -12,6 +12,7 @@
     <property name="is24" display-name-key="is24" description-key="Use 24 Hours" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="isTimeRange" display-name-key="isTimeRange" description-key="Display time range" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="isManual" display-name-key="isManual" description-key="Allow manual time entry" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="locale" display-name-key="locale" description-key="Locale code" of-type="SingleLine.Text" usage="input" required="false" />
     <resources>
       <code path="index.ts" order="1"/>
       <!-- UNCOMMENT TO ADD MORE RESOURCES

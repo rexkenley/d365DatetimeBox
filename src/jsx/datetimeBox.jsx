@@ -8,7 +8,12 @@ import { initializeIcons } from "@uifabric/icons";
 import Handlebars from "handlebars";
 import HandlebarsIntl from "handlebars-intl";
 
-import { setDatetime, get12Hours, get24Hours } from "../js/datetime";
+import {
+  setDatetime,
+  get12Hours,
+  get24Hours,
+  getStrings
+} from "../js/datetime";
 import ManualTimeBox from "./manualTimeBox";
 
 /** @module datetimeBox */
@@ -140,10 +145,12 @@ const datetimeBoxId = getId("datetimeBox"),
             content={setTooltip(tooltip, setDatetime(date, time))}
           >
             <DatePicker
+              showGoToToday={false}
               id={datetimeBoxId}
               label={label}
               value={date}
               disabled={disabled}
+              strings={getStrings(locale)}
               onSelectDate={selected => {
                 setDate(selected);
                 if (!selected) setTime(null);

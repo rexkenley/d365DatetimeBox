@@ -1,10 +1,11 @@
 import { enUS, es, fr, uk } from "date-fns/locale";
+import startCase from "lodash/startCase";
 
 /** @module datetime */
 
 /** @const */
 const locales = { default: enUS, es, fr, uk },
-  width = { width: "wide" };
+  wide = { width: "wide" };
 
 /**
  * A RegExp for 12 hours
@@ -71,7 +72,7 @@ export function get12Hours(locale = "en-US") {
         key: time,
         // eslint-disable-next-line
         text: `${hour === 0 ? "12" : hour > 12 ? hour - 12 : hour}:${min} ${
-          hour < 12 ? dayPeriod("am", width) : dayPeriod("pm", width)
+          hour < 12 ? dayPeriod("am", wide) : dayPeriod("pm", wide)
         }`
       });
     });
@@ -112,8 +113,39 @@ export function getPeriods(locale = "en-US") {
       localize: { dayPeriod }
     } = locales[locale] || locales.default;
 
-  periods.push({ key: "AM", text: dayPeriod("am", width) });
-  periods.push({ key: "PM", text: dayPeriod("pm", width) });
+  periods.push({ key: "AM", text: dayPeriod("am", wide) });
+  periods.push({ key: "PM", text: dayPeriod("pm", wide) });
 
   return periods;
+}
+
+/**
+ * Returns a Calendar props object
+ * @module datetime/getStrings
+ * @function
+ * @param {string} locale - defaults to en-US
+ * @returns {{}}
+ * @link https://developer.microsoft.com/en-us/fabric#/controls/web/calendar#ICalendarStrings
+ */
+export function getStrings(locale = "en-US") {
+  const abbrv = { width: "abbreviated" },
+    {
+      localize: { day, month }
+    } = locales[locale] || locales.default,
+    days = [],
+    months = [],
+    shortDays = [],
+    shortMonths = [];
+
+  for (let i = 0; i < 7; i += 1) {
+    days.push(startCase(day(i, wide)));
+    shortDays.push(startCase(day(i, abbrv)));
+  }
+
+  for (let i = 0; i < 12; i += 1) {
+    months.push(startCase(month(i, wide)));
+    shortMonths.push(startCase(month(i, abbrv)));
+  }
+
+  return { goToToday: "Go to Today", days, months, shortDays, shortMonths };
 }

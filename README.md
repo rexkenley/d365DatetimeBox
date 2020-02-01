@@ -9,6 +9,7 @@ An enhanced datetime box
   - [Handlebars Guide](https://handlebarsjs.com/guide/)
   - [Format Dates Relative To "now"](https://formatjs.io/handlebars/#formatRelative)
 - A date time range in either dropdown or manual entry mode
+- Localized feature (en-US, es, fr, uk)
 
 **Settings**
 
@@ -18,6 +19,7 @@ An enhanced datetime box
 - is24 - true to display military time
 - isTimeRange - true to display end date time
 - isManual - true to allow manual time entry
+- locale - locale code
 
 **Testing and Review**
 
@@ -28,3 +30,9 @@ An enhanced datetime box
 **Create deployment file**
 
 - msbuild /t:build /restore /p:configuration=Release
+
+**Localization**
+The current code base supports English, French, Spanish and Ukranian. If you want to change the supported languages, you need to change src\js\datetime.js
+
+- import { enUS, es, fr, uk } from "date-fns/locale";
+- [date-fns locale](https://github.com/date-fns/date-fns/tree/master/src/locale)

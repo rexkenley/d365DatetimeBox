@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import differenceInSeconds from "date-fns/differenceInSeconds";
 import { IInputs, IOutputs } from "./generated/ManifestTypes"; // eslint-disable-line
 
 import DtB from "../src/jsx/datetimeBox";
@@ -8,13 +9,14 @@ export class DatetimeBox
   implements ComponentFramework.StandardControl<IInputs, IOutputs> {
   private container: HTMLDivElement;
   private notifyOutputChanged: () => void;
-  private currentValue: Date | null;
+  private value: Date | null;
   private endValue: Date | null;
   private updatedByReact: boolean;
   private tooltip: string;
   private is24: boolean;
   private isTimeRange: boolean;
   private isManual: boolean;
+  private locale: string;
   private isControlDisabled: boolean;
   private isVisible: boolean;
 
@@ -33,18 +35,27 @@ export class DatetimeBox
     container: HTMLDivElement
   ) {
     const { parameters, mode } = context,
-      { value, endValue, tooltip, is24, isTimeRange, isManual } = parameters,
+      {
+        value,
+        endValue,
+        tooltip,
+        is24,
+        isTimeRange,
+        isManual,
+        locale
+      } = parameters,
       { isControlDisabled, isVisible } = mode;
 
     this.container = container;
     this.notifyOutputChanged = notifyOutputChanged;
-    this.currentValue = value && value.raw;
+    this.value = value && value.raw;
     this.endValue = endValue && endValue.raw;
     this.updatedByReact = false;
     this.tooltip = (tooltip && tooltip.raw) || "";
     this.is24 = (is24 && is24.raw === "true") || false;
     this.isTimeRange = (isTimeRange && isTimeRange.raw === "true") || false;
     this.isManual = (isManual && isManual.raw === "true") || false;
+    this.locale = (locale && locale.raw) || "en-US";
     this.isControlDisabled = isControlDisabled;
     this.isVisible = isVisible;
 
@@ -53,17 +64,18 @@ export class DatetimeBox
       // @ts-ignore
       React.createElement(DtB, {
         // @ts-ignore
-        value: this.currentValue,
+        value: this.value,
         endValue: this.endValue,
         tooltip: this.tooltip,
         is24: this.is24,
         isTimeRange: this.isTimeRange,
         isManual: this.isManual,
+        locale: this.locale,
         disabled: this.isControlDisabled,
         hidden: !this.isVisible,
         isDateOnly: value.type === "DateAndTime.DateOnly",
         onSelectDatetime: result => {
-          this.currentValue = result.value;
+          this.value = result.value;
           this.endValue = result.endValue;
           this.updatedByReact = true;
           this.notifyOutputChanged();
@@ -82,13 +94,23 @@ export class DatetimeBox
     const { parameters, mode } = context,
       { value, endValue } = parameters,
       { isControlDisabled, isVisible } = mode;
+    let sameValues;
+
+    if (this.isTimeRange) {
+      sameValues =
+        value &&
+        // @ts-ignore
+        !differenceInSeconds(this.value, value.raw) &&
+        endValue &&
+        // @ts-ignore
+        !differenceInSeconds(this.endValue, endValue.raw);
+    } else {
+      // @ts-ignore
+      sameValues = value && !differenceInSeconds(this.value, value.raw);
+    }
 
     if (this.updatedByReact) {
-      if (
-        (value && this.currentValue === value.raw) ||
-        (endValue && this.endValue === endValue.raw)
-      )
-        this.updatedByReact = false;
+      if (sameValues) this.updatedByReact = false;
 
       return;
     }
@@ -101,24 +123,25 @@ export class DatetimeBox
       this.isVisible = isVisible;
     }
 
-    this.currentValue = value && value.raw;
+    this.value = value && value.raw;
     this.endValue = endValue && endValue.raw;
 
     ReactDOM.render(
       // @ts-ignore
       React.createElement(DtB, {
         // @ts-ignore
-        value: this.currentValue,
+        value: this.value,
         endValue: this.endValue,
         tooltip: this.tooltip,
         is24: this.is24,
         isTimeRange: this.isTimeRange,
         isManual: this.isManual,
+        locale: this.locale,
         disabled: this.isControlDisabled,
         hidden: !this.isVisible,
         isDateOnly: value.type === "DateAndTime.DateOnly",
         onSelectDatetime: result => {
-          this.currentValue = result.value;
+          this.value = result.value;
           this.endValue = result.endValue;
           this.updatedByReact = true;
           this.notifyOutputChanged();
@@ -134,10 +157,15 @@ export class DatetimeBox
    */
   public getOutputs(): IOutputs {
     if (this.isTimeRange)
-      // @ts-ignore
-      return { value: this.currentValue, endValue: this.endValue };
+      return {
+        // @ts-ignore
+        value: this.value,
+        // @ts-ignore
+        endValue: this.endValue
+      };
+
     // @ts-ignore
-    return { value: this.currentValue };
+    return { value: this.value };
   }
 
   /**
