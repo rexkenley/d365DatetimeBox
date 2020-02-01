@@ -94,10 +94,10 @@ export class DatetimeBox
     const { parameters, mode } = context,
       { value, endValue } = parameters,
       { isControlDisabled, isVisible } = mode;
-    let sameValues;
+    let equivalent;
 
     if (this.isTimeRange) {
-      sameValues =
+      equivalent =
         value &&
         // @ts-ignore
         !differenceInSeconds(this.value, value.raw) &&
@@ -106,11 +106,11 @@ export class DatetimeBox
         !differenceInSeconds(this.endValue, endValue.raw);
     } else {
       // @ts-ignore
-      sameValues = value && !differenceInSeconds(this.value, value.raw);
+      equivalent = value && !differenceInSeconds(this.value, value.raw);
     }
 
     if (this.updatedByReact) {
-      if (sameValues) this.updatedByReact = false;
+      if (equivalent) this.updatedByReact = false;
 
       return;
     }
