@@ -4,7 +4,7 @@ import { Stack } from "office-ui-fabric-react";
 import { MaskedTextField } from "office-ui-fabric-react/lib/TextField";
 import { Dropdown } from "office-ui-fabric-react/lib/Dropdown";
 
-import { hour12, hour24, periods } from "../js/datetime";
+import { hour12, hour24, getPeriods } from "../js/datetime";
 
 /** @module manualTimeBox */
 
@@ -16,6 +16,7 @@ import { hour12, hour24, periods } from "../js/datetime";
  * @property {function} onTimeChange - a callback fired when valid date is changed
  * @property {boolean} is24 - 24 hours if true, otherwise 12 hours
  * @property {boolean} disabled - lock control
+ * @property {string} locale
  */
 
 /**
@@ -27,7 +28,7 @@ import { hour12, hour24, periods } from "../js/datetime";
  */
 const ManualTimeBox = props => {
   // eslint-disable-next-line
-  const { label, value, onTimeChange, is24, disabled } = props,
+  const { label, value, onTimeChange, is24, disabled, locale } = props,
     [time, setTime] = useState(),
     [period, setPeriod] = useState(),
     [error, setError] = useState();
@@ -73,7 +74,7 @@ const ManualTimeBox = props => {
           <Dropdown
             label={label && "_"}
             placeholder="--"
-            options={periods}
+            options={getPeriods(locale)}
             selectedKey={period}
             disabled={disabled}
             onChange={(event, item) => {

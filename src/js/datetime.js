@@ -1,6 +1,10 @@
-import locales from "./locales";
+import { enUS, es, fr, uk } from "date-fns/locale";
 
 /** @module datetime */
+
+/** @const */
+const locales = { default: enUS, es, fr, uk },
+  width = { width: "wide" };
 
 /**
  * A RegExp for 12 hours
@@ -56,7 +60,9 @@ export function setDatetime(date, time) {
  */
 export function get12Hours(locale = "en-US") {
   const hours = [],
-    { dayPeriod } = locales[locale];
+    {
+      localize: { dayPeriod }
+    } = locales[locale] || locales.default;
 
   for (let hour = 0; hour < 24; hour += 1) {
     ["00", "15", "30", "45"].forEach(min => {
@@ -65,7 +71,7 @@ export function get12Hours(locale = "en-US") {
         key: time,
         // eslint-disable-next-line
         text: `${hour === 0 ? "12" : hour > 12 ? hour - 12 : hour}:${min} ${
-          hour < 12 ? dayPeriod("am") : dayPeriod("pm")
+          hour < 12 ? dayPeriod("am", width) : dayPeriod("pm", width)
         }`
       });
     });
@@ -102,12 +108,12 @@ export function get24Hours() {
  */
 export function getPeriods(locale = "en-US") {
   const periods = [],
-    { dayPeriod } = locales[locale];
+    {
+      localize: { dayPeriod }
+    } = locales[locale] || locales.default;
 
-  if (locales[locale]) {
-    periods.push({ key: "AM", text: dayPeriod("am") });
-    periods.push({ key: "PM", text: dayPeriod("pm") });
-  }
+  periods.push({ key: "AM", text: dayPeriod("am", width) });
+  periods.push({ key: "PM", text: dayPeriod("pm", width) });
 
   return periods;
 }

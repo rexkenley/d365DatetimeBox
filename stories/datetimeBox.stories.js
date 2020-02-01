@@ -10,6 +10,15 @@ storiesOf("DatetimeBox", module)
   .add("With props isTimeRange and disabled", () => (
     <DatetimeBox isTimeRange disabled />
   ))
+  .add("With props isTimeRange and locale es", () => (
+    <DatetimeBox isTimeRange locale="es" />
+  ))
+  .add("With props isTimeRange and locale fr", () => (
+    <DatetimeBox isTimeRange locale="fr" />
+  ))
+  .add("With props isTimeRange and locale uk", () => (
+    <DatetimeBox isTimeRange locale="uk" />
+  ))
   .add("With props label Label", () => <DatetimeBox label="Label" />)
   .add("With props is24", () => <DatetimeBox is24 />)
   .add("With props value Date 1/1/2020 13:00 Standard", () => {
@@ -24,7 +33,7 @@ storiesOf("DatetimeBox", module)
   .add("With props onSelectDatetime", () => (
     <DatetimeBox onSelectDatetime={action("onSelectDatetime")} />
   ))
-  .add("With props isDateOnly true", () => <DatetimeBox isDateOnly={true} />)
+  .add("With props isDateOnly true", () => <DatetimeBox isDateOnly />)
   .add("With props isTimeRange and onSelectDatetime", () => (
     <DatetimeBox isTimeRange onSelectDatetime={action("onSelectDatetime")} />
   ))

@@ -29,6 +29,7 @@ HandlebarsIntl.registerWith(Handlebars);
  * @property {boolean} isDateOnly - will display time dropdown if true
  * @property {boolean} isManual - allow manual time entry
  * @property {boolean} disabled - lock control
+ * @property {string} locale
  */
 
 const datetimeBoxId = getId("datetimeBox"),
@@ -61,9 +62,10 @@ const datetimeBoxId = getId("datetimeBox"),
         isDateOnly,
         isManual,
         disabled,
-        hidden
+        hidden,
+        locale
       } = props,
-      options = is24 ? get24Hours() : get12Hours(),
+      options = is24 ? get24Hours() : get12Hours(locale),
       [date, setDate] = useState(),
       [time, setTime] = useState(),
       [endTime, setEndTime] = useState(),
@@ -166,6 +168,7 @@ const datetimeBoxId = getId("datetimeBox"),
                 value={value}
                 is24={is24}
                 disabled={disabled}
+                locale={locale}
                 onTimeChange={onTimeChange}
               />
             ) : (
@@ -191,6 +194,7 @@ const datetimeBoxId = getId("datetimeBox"),
                 value={value}
                 is24={is24}
                 disabled={disabled}
+                locale={locale}
                 onTimeChange={onEndTimeChange}
               />
             ) : (
