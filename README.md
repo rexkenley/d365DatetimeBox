@@ -27,12 +27,12 @@ An enhanced datetime box
   - Note: If you get an error, make sure you have a **\_\_results\_\_** folder in test and run **npm run test:output**
 - npm run test
 
+**Localization**
+
+The current code base supports English, French, Spanish and Ukranian. If you want to change the supported languages, you need to change src\js\datetime.js
+- import { enUS, es, fr, uk } from "date-fns/locale";
+- [date-fns locale](https://github.com/date-fns/date-fns/tree/master/src/locale)
+
 **Create deployment file**
 
 - msbuild /t:build /restore /p:configuration=Release
-
-**Localization**
-The current code base supports English, French, Spanish and Ukranian. If you want to change the supported languages, you need to change src\js\datetime.js
-
-- import { enUS, es, fr, uk } from "date-fns/locale";
-- [date-fns locale](https://github.com/date-fns/date-fns/tree/master/src/locale)
