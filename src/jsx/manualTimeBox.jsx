@@ -47,7 +47,7 @@ const ManualTimeBox = props => {
 
   return (
     <Fabric>
-      <Stack tokens={{ childrenGap: 8 }} horizontal>
+      <Stack tokens={{ childrenGap: 8 }} horizontal verticalAlign="end">
         <MaskedTextField
           mask="99:99"
           label={label}
@@ -72,7 +72,6 @@ const ManualTimeBox = props => {
         />
         {!is24 && (
           <Dropdown
-            label={label && "_"}
             placeholder="--"
             options={getPeriods(locale)}
             selectedKey={period}

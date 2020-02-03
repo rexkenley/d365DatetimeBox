@@ -20,6 +20,9 @@ storiesOf("DatetimeBox", module)
     <DatetimeBox isTimeRange locale="uk" />
   ))
   .add("With props label Label", () => <DatetimeBox label="Label" />)
+  .add("With props label Label, isTimeRange and isManual", () => (
+    <DatetimeBox label="Label" isTimeRange isManual />
+  ))
   .add("With props is24", () => <DatetimeBox is24 />)
   .add("With props value Date 1/1/2020 13:00 Standard", () => {
     return <DatetimeBox value={new Date("1/1/2020 13:00")} />;

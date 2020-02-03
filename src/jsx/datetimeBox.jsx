@@ -139,7 +139,7 @@ const datetimeBoxId = getId("datetimeBox"),
 
     return (
       <Fabric>
-        <Stack tokens={{ childrenGap: 8 }} horizontal>
+        <Stack tokens={{ childrenGap: 8 }} horizontal verticalAlign="end">
           <TooltipHost
             id={tooltipId}
             content={setTooltip(tooltip, setDatetime(date, time))}
@@ -171,7 +171,6 @@ const datetimeBoxId = getId("datetimeBox"),
           {!isDateOnly &&
             (isManual ? (
               <ManualTimeBox
-                label={label && "_"}
                 value={value}
                 is24={is24}
                 disabled={disabled}
@@ -184,7 +183,6 @@ const datetimeBoxId = getId("datetimeBox"),
                 useComboBoxAsMenuWidth
                 buttonIconProps={{ iconName: "Clock" }}
                 multiSelect={false}
-                label={label && "_"}
                 options={options}
                 selectedKey={time && time.key}
                 disabled={disabled}
@@ -197,7 +195,6 @@ const datetimeBoxId = getId("datetimeBox"),
             isTimeRange &&
             (isManual ? (
               <ManualTimeBox
-                label={label && "_"}
                 value={value}
                 is24={is24}
                 disabled={disabled}
@@ -210,7 +207,6 @@ const datetimeBoxId = getId("datetimeBox"),
                 useComboBoxAsMenuWidth
                 buttonIconProps={{ iconName: "Clock" }}
                 multiSelect={false}
-                label={label && "_"}
                 options={options}
                 selectedKey={endTime && endTime.key}
                 disabled={disabled}
