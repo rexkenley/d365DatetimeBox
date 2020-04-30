@@ -13,7 +13,9 @@
     "build": "pcf-scripts build",
     "clean": "pcf-scripts clean",
     "rebuild": "pcf-scripts rebuild",
-    "start": "pcf-scripts start"
+    "start": "pcf-scripts start",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "pcf",
@@ -33,7 +35,8 @@
     "lodash": "^4.17.15",
     "office-ui-fabric-react": "^7.97.1",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -65,5 +68,6 @@
     "pcf-start": "^1",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.0"
-  }
+  },
+  "snyk": true
 }
